@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Crown, Medal, Star, DollarSign } from 'lucide-react';
+import { Crown, Medal, Star, Gift } from 'lucide-react';
 
 const SPORTS = ['Cricket', 'Football', 'Hockey', 'Tennis'];
 
@@ -27,10 +27,11 @@ const MOCK_LEADERBOARD = {
   ],
 };
 
-const TIERS = [
-  { id: 'bronze', name: 'Bronze', amount: 100, per: 'month', perks: ['Badge on profile'] },
-  { id: 'silver', name: 'Silver', amount: 250, per: 'month', perks: ['Profile badge', 'Feed highlight 1x'] },
-  { id: 'gold', name: 'Gold', amount: 500, per: 'month', perks: ['Badge', 'Feed highlight 2x', 'DM priority'] },
+// In-kind sponsorship options focused on gear and nutrition — not subscriptions
+const IN_KIND_OPTIONS = [
+  { id: 'gear', name: 'Gear Pack', items: ['Pro-grade shoes', 'Training kit', 'Grip & gloves'], branding: 'Logo on athlete profile' },
+  { id: 'nutrition', name: 'Nutrition Bundle', items: ['Protein shakes (30-day)', 'Electrolytes', 'Supplements'], branding: 'Brand shoutout on video highlights' },
+  { id: 'elite', name: 'Elite Kit', items: ['Full apparel set', 'Custom bag', 'Seasonal equipment'], branding: 'Featured placement on leaderboard' },
 ];
 
 export default function Leaderboards() {
@@ -46,7 +47,7 @@ export default function Leaderboards() {
         </select>
       </div>
 
-      <p className="mt-1 text-sm text-white/70">Top performers in {sport} for {month}. Sponsor your favorite athlete to boost their journey.</p>
+      <p className="mt-1 text-sm text-white/70">Top performers in {sport} for {month}. Offer in-kind sponsorships like gear, nutrition, and kits — brands get meaningful visibility across the platform.</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {MOCK_LEADERBOARD[sport].map((ath, idx) => (
@@ -56,19 +57,19 @@ export default function Leaderboards() {
 
       <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4">
         <div className="flex items-center gap-2 text-white">
-          <DollarSign className="h-5 w-5 text-emerald-300" />
-          <p className="font-semibold">Sponsorship Options</p>
+          <Gift className="h-5 w-5 text-emerald-300" />
+          <p className="font-semibold">In-kind Sponsorships</p>
         </div>
-        <p className="mt-1 text-sm text-white/70">Choose a monthly tier. Funds go directly to athletes to support training, travel, and equipment.</p>
+        <p className="mt-1 text-sm text-white/70">Support athletes with products instead of subscriptions. Your brand appears alongside their highlights and leaderboards.</p>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          {TIERS.map(t => (
-            <div key={t.id} className="rounded-xl border border-white/10 bg-black/40 p-4 text-white">
-              <p className="font-semibold">{t.name}</p>
-              <p className="mt-1 text-2xl font-bold">${t.amount}<span className="text-sm font-medium text-white/70">/{t.per}</span></p>
+          {IN_KIND_OPTIONS.map(opt => (
+            <div key={opt.id} className="rounded-xl border border-white/10 bg-black/40 p-4 text-white">
+              <p className="font-semibold">{opt.name}</p>
               <ul className="mt-2 list-disc pl-5 text-sm text-white/80">
-                {t.perks.map((p, i) => <li key={i}>{p}</li>)}
+                {opt.items.map((p, i) => <li key={i}>{p}</li>)}
               </ul>
-              <button className="mt-4 w-full rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-sm font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">Sponsor an Athlete</button>
+              <p className="mt-2 text-xs text-white/60">Branding: {opt.branding}</p>
+              <button className="mt-4 w-full rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-sm font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">Offer Sponsorship</button>
             </div>
           ))}
         </div>
@@ -104,7 +105,7 @@ function LeaderboardCard({ rank, athlete }) {
       </div>
       <div className="mt-4 grid grid-cols-2 gap-2">
         <button className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium hover:bg-white/10">View Profile</button>
-        <button className="rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-xs font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">Sponsor</button>
+        <button className="rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-xs font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">Offer Sponsorship</button>
       </div>
     </div>
   );

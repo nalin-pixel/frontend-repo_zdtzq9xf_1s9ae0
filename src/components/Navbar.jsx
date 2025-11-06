@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Home, Video, Users, Trophy, Search, User } from 'lucide-react';
+import { Home, Video, Trophy, Search, User } from 'lucide-react';
 
 export default function Navbar() {
   const [query, setQuery] = useState('');
@@ -40,13 +40,9 @@ export default function Navbar() {
               <Video className="h-4 w-4" />
               Feed
             </a>
-            <a href="#talent" className="hidden lg:inline-flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm font-medium text-white hover:bg-white/15">
-              <Users className="h-4 w-4" />
-              Talent
-            </a>
-            <a href="#" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-sm font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">
+            <a href="#leaderboards" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-3 py-2 text-sm font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">
               <Trophy className="h-4 w-4" />
-              Recruit
+              Leaderboards
             </a>
             <button className="ml-1 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white hover:bg-white/10">
               <User className="h-5 w-5" />
