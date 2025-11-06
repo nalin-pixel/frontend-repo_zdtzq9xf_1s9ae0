@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import VideoFeed from './components/VideoFeed';
 import TalentDirectory from './components/TalentDirectory';
 import CallToAction from './components/CallToAction';
+import Leaderboards from './components/Leaderboards';
 
 function Hero() {
   return (
@@ -19,6 +20,7 @@ function Hero() {
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a href="#feed" className="inline-flex items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-400 px-4 py-2 text-sm font-semibold text-black hover:from-emerald-400 hover:to-cyan-300">Open Video Feed</a>
               <a href="#talent" className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10">Find Talent</a>
+              <a href="#leaderboards" className="inline-flex items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/15">Leaderboards</a>
             </div>
           </div>
           <div className="relative">
@@ -43,6 +45,7 @@ export default function App() {
       <Hero />
       <VideoFeed />
       <TalentDirectory />
+      <Leaderboards />
       <CallToAction />
       <footer className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 text-white/60 text-sm">
         © {new Date().getFullYear()} PakTalent Sports — Built for Pakistan’s athletes and recruiters
